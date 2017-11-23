@@ -14,10 +14,14 @@
 
 @implementation AppDelegate
 
+@synthesize oneSignal = _oneSignal;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   NSURL *jsCodeLocation;
-
+  self.oneSignal = [[RCTOneSignal alloc] initWithLaunchOptions:launchOptions
+                                                         appId:@"067f0cd3-bb8a-4024-9878-99613283404f"
+                                                      settings:@{kOSSettingsKeyAutoPrompt: @false}];
+  
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation

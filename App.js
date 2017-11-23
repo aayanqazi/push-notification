@@ -5,6 +5,7 @@
  */
 
 import React, { Component } from 'react';
+import OneSignal from 'react-native-onesignal';
 import {
   Platform,
   StyleSheet,
@@ -20,6 +21,9 @@ const instructions = Platform.select({
 });
 
 export default class App extends Component<{}> {
+  componentDidMount() {
+    OneSignal.configure({});
+  }
   render() {
     return (
       <View style={styles.container}>
