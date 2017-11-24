@@ -19,8 +19,7 @@
 {
   NSURL *jsCodeLocation;
   self.oneSignal = [[RCTOneSignal alloc] initWithLaunchOptions:launchOptions
-                                                         appId:@"067f0cd3-bb8a-4024-9878-99613283404f"
-                                                      settings:@{kOSSettingsKeyAutoPrompt: @false}];
+                                                         appId:@"067f0cd3-bb8a-4024-9878-99613283404f"];
   
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
 
@@ -37,5 +36,9 @@
   [self.window makeKeyAndVisible];
   return YES;
 }
+                    
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)notification {
+                      [RCTOneSignal didReceiveRemoteNotification:notification];
+  }
 
 @end
